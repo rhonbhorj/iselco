@@ -41,12 +41,15 @@ class ApiService
   {
     $generated_token = $this->generate_token();
 
+
+    // $generated_token =  "oI4WYmYzK/vLxcIoJvp1BTlNeFF6THdDbEQ1Y2laU1B4dTgwNm05a1lFbXQrclpHaUNvcktwVGpvc0lweXRMYk15VEQ1ZDFKM3cyMkh4WStmZ2gyeFNMMXBXVkNDakZHZ3RTYXM5cDBzRWRPbXlwUUVmdWc4eFVzS3d5N2M2S1VHbDJPckpQUGE2SHdSTjJrOWJaTFZGT0dUb29DcmFsT2JJbmk5dz09";
     $endpoint = $this->endpoint_base_url . $data['endpoint'];
 		
     $dataToSend = $data;
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $endpoint);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
         'Authorization: Bearer ' . $generated_token, 
         'Content-Type: application/json',
@@ -71,4 +74,5 @@ class ApiService
     // expecting to be a json encoded response
     return $response;
   }
+
 }

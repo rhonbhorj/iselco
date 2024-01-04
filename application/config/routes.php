@@ -52,12 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['404_override'] = 'custom404';
 
-$route['default_controller'] = 'marketmanager';
-$route['login'] = 'Nav/login';
+$route['default_controller'] = 'test';
+// $route['login'] = 'Nav/login';
 
-$route['signup'] = 'Nav/sign_up';
 
-$route['declarator']  = 'declarator';
 
-$route['api/data/valid-ids'] = 'Api/get_valid_ids';
-$route['api/data/check-registrants'] = 'Csr/check_registrants';
+
+$route['test'] = 'test';
